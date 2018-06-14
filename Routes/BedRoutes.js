@@ -16,7 +16,14 @@ router.get('/', function (req, res) {
             res.status(data.status).send(data.data);
         }).catch(function (err) {
             res.status(500).send(err.message);
-        })
+        });
+    }
+    else if(req.query.availability){
+        controller.getAvailableBeds(req.query.availability).then(function (data) {
+            res.status(data.status).send(data.data);
+        }).catch(function (err) {
+            res.status(500).send(err.message);
+        });
     }
     else{
         controller.getAllBeds().then(function (data) {

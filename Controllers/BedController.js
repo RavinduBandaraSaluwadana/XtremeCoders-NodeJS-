@@ -45,6 +45,16 @@ var bedController = function () {
         });
     }
 
+    this.getAvailableBeds = function (availability) {
+        return new Promise(function (resolve, reject) {
+            BedSchema.find({availability: availability}).exec().then(function (data) {
+                resolve({status: 200, data: data});
+            }).catch(function (reason) {
+                reject({status: 500, message: "Error :"+reason});
+            });
+        });
+    }
+
     this.allocateBed = function (bedNo,bedInstance) {
         return new Promise(function (resolve, reject) {
             BedSchema.update({bedNo: bedNo}, bedInstance).then(function () {
