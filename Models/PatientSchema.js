@@ -26,17 +26,28 @@ const PatientSchema = new Schema({
     },
     address: {
         type: String,
-        required: false,
-        default: ""
+        required: false
     },
     admittedBy: {
         type: String,
-        required: false,
-        default: ""
+        required: false
     },
     admittedDate:{
         type: Date,
         required: true
+    },
+    status:{
+        type: String,
+        required: true,
+        default: "registered"
+    },
+    admissionNo:{
+        type: Number,
+        required: false
+    },
+    contactNo:{
+        type: String,
+        required: false
     }
 });
 

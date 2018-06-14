@@ -13,10 +13,10 @@ const BedSchema = new Schema({
         required: true,
         default: true
     },
-    patientId: {
-        type: Number,
+    patientNo: {
+        type: String,
         required: false,
-        default: null
+        default: ""
     }
 
 });

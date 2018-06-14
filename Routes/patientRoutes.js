@@ -19,6 +19,20 @@ router.get('/', function (req, res) {
             res.status(500).send(err.message);
         });
     }
+    else if(req.query.name){
+        controller.getByName(req.query.name).then(function (data) {
+            res.status(data.status).send(data.data);
+        }).catch(function (err) {
+            res.status(500).send(err.message);
+        });
+    }
+    else if(req.query.status){
+        controller.getByStatus(req.query.status).then(function (data) {
+            res.status(data.status).send(data.data);
+        }).catch(function (err) {
+            res.status(500).send(err.message);
+        });
+    }
     else{
         controller.getPatients().then(function (data) {
             res.status(data.status).send(data.data);

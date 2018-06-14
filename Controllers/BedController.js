@@ -37,7 +37,7 @@ var bedController = function () {
 
     this.getByPatient = function (patientId) {
         return new Promise(function (resolve, reject) {
-            BedSchema.find({patientId:patientId}).exec().then(function (data) {
+            BedSchema.find({patientNo:patientId}).exec().then(function (data) {
                 resolve({status: 200, data: data});
             }).catch(function (reason) {
                 reject({status: 500, message: "Error "+reason});

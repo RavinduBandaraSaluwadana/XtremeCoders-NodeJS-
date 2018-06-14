@@ -49,6 +49,26 @@ var patientController = function () {
         })
     }
 
+    this.getByName = function (name) {
+        return new Promise(function (resolve, reject) {
+            PatientSchema.find({name: name}).exec().then(function (patientData) {
+                resolve({status: 200, data: patientData});
+            }).catch(function (reason) {
+                reject({status: 500, message:'Error occured'+ reason});
+            });
+        })
+    }
+
+    this.getByStatus = function (status) {
+        return new Promise(function (resolve, reject) {
+            PatientSchema.find({status: status}).exec().then(function (patientData) {
+                resolve({status: 200, data: patientData});
+            }).catch(function (reason) {
+                reject({status: 500, message:'Error occured'+ reason});
+            });
+        })
+    }
+
     this.updatePatient = function (id, patientDetails) {
         return new Promise(function (resolve, reject) {
             PatientSchema.update({_id: id}, patientDetails).then(function () {

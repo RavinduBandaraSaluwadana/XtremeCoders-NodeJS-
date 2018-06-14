@@ -11,8 +11,8 @@ router.post('/', function (req, res) {
 });
 
 router.get('/', function (req, res) {
-    if(req.query.patientId){
-        controller.getByPatient(req.query.patientId).then(function (data) {
+    if(req.query.patientNo){
+        controller.getByPatient(req.query.patientNo).then(function (data) {
             res.status(data.status).send(data.data);
         }).catch(function (err) {
             res.status(500).send(err.message);
@@ -36,7 +36,7 @@ router.get('/:bedNo', function (req, res) {
     });
 });
 
-router.put('/', function (req,res) {
+router.put('/:bedNo', function (req,res) {
     controller.allocateBed(req.params.bedNo, req.body).then(function (data) {
         res.status(data.status).send(data.message);
     }).catch(function (err) {
