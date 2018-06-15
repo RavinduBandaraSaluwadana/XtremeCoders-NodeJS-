@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 //require your schemas here
 var PatientSchema = require('../Models/PatientSchema');
 var BedSchema = require('../Models/BedSchema');
+var ExamSchema = require('../Models/DoctorExamSchema')
 var DischargeSchema = require('../Models/DischargeSchema');
 var Transfer = require('../Models/TransferSchema');
 
@@ -9,6 +10,7 @@ var Transfer = require('../Models/TransferSchema');
 //register your model here
 mongoose.model('Patient', PatientSchema);
 mongoose.model('Bed', BedSchema);
+mongoose.model('DocExam', ExamSchema);
 mongoose.model('Discharge',DischargeSchema);
 mongoose.model('Transfer',Transfer);
 
