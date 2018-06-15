@@ -2,11 +2,13 @@ const mongoose = require('mongoose');
 //require your schemas here
 var PatientSchema = require('../Models/PatientSchema');
 var BedSchema = require('../Models/BedSchema');
+var ExamSchema = require('../Models/DoctorExamSchema');
 
 //Schemas
 //register your model here
 mongoose.model('Patient', PatientSchema);
 mongoose.model('Bed', BedSchema);
+mongoose.model('DocExam',ExamSchema);
 
 mongoose.connect('mongodb://localhost:27017/PCU', function (err) {
     if(err){
